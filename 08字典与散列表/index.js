@@ -51,3 +51,26 @@ hash1.put('Jamie', 'jamie@email.com'); //5
 hash1.put('Sue', 'sue@email.com'); //5
 hash1.put('Aethelwulf', 'aethelwulf@email.com'); //5
 console.log(hash1.toString())
+
+console.log('\n----------ES6 map类----------');
+const map = new Map();
+map.set('Gandalf', 'gandalf@email.com');
+map.set('John', 'johnsnow@email.com');
+map.set('Tyrion', 'tyrion@email.com');
+console.log(map.has('Gandalf')); // true 
+console.log(map.size); // 3 
+console.log(map.keys()); // 输出{"Gandalf", "John", "Tyrion"} 
+console.log(map.values()); // 输出{"gandalf@email.com", "johnsnow@email.com", "tyrion@email.com"}
+console.log(map.get('Tyrion')); // tyrion@email.com
+
+console.log('\n----------ES6 WeakMap类----------');
+const wmap = new WeakMap();
+const ob1 = { name: 'Gandalf' }; // {1} 
+const ob2 = { name: 'John' };
+const ob3 = { name: 'Tyrion' };
+wmap.set(ob1, 'gandalf@email.com'); // {2} 
+wmap.set(ob2, 'johnsnow@email.com');
+wmap.set(ob3, 'tyrion@email.com');
+console.log(wmap.has(ob1)); // true {3} 
+console.log(wmap.get(ob3)); // tyrion@email.com {4} 
+wmap.delete(ob2); // {5}
