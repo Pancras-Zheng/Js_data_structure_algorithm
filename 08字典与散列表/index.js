@@ -1,5 +1,6 @@
 import Dictionary from "./dictionary.js";
 import HashTable from "./hashTable.js";
+import HashTableSeparateChaining from "./hash-table-separate-chaining.js";
 
 console.log('\n--------使用Dictionary类---------');
 const dictionary = new Dictionary();
@@ -30,17 +31,23 @@ console.log(hash.get('Gandalf')); // undefined
 
 console.log('\n---------散列表中的冲突-----------');
 const hashc = new HashTable();
-hashc.put('Ygritte', 'ygritte@email.com');
-hashc.put('Jonathan', 'jonathan@email.com');
-hashc.put('Jamie', 'jamie@email.com');
-hashc.put('Jack', 'jack@email.com');
-hashc.put('Jasmine', 'jasmine@email.com');
-hashc.put('Jake', 'jake@email.com');
-hashc.put('Nathan', 'nathan@email.com');
-hashc.put('Athelstan', 'athelstan@email.com');
-hashc.put('Sue', 'sue@email.com');
-hashc.put('Aethelwulf', 'aethelwulf@email.com');
-hashc.put('Sargeras', 'sargeras@email.com');
+hashc.put('Ygritte', 'ygritte@email.com'); //hashCode = 4
+hashc.put('Jonathan', 'jonathan@email.com'); //5
+hashc.put('Jamie', 'jamie@email.com'); //5
+hashc.put('Jack', 'jack@email.com'); //7
+hashc.put('Jasmine', 'jasmine@email.com'); //8
+hashc.put('Jake', 'jake@email.com'); //9
+hashc.put('Nathan', 'nathan@email.com'); //10
+hashc.put('Athelstan', 'athelstan@email.com'); //7
+hashc.put('Sue', 'sue@email.com'); //5
+hashc.put('Aethelwulf', 'aethelwulf@email.com'); //5
+hashc.put('Sargeras', 'sargeras@email.com'); //10
 console.log(hashc.toString())
 
-console.log('\n---------处理冲突-----------');
+console.log('\n----------1.分离链接----------');
+const hash1 = new HashTableSeparateChaining;
+hash1.put('Jonathan', 'jonathan@email.com'); //5
+hash1.put('Jamie', 'jamie@email.com'); //5
+hash1.put('Sue', 'sue@email.com'); //5
+hash1.put('Aethelwulf', 'aethelwulf@email.com'); //5
+console.log(hash1.toString())

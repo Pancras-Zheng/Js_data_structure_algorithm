@@ -27,8 +27,8 @@ export default class HashTableSeparateChaining {
     put(key, value) {
         if (key != null && value != null) {
             const position = this.hashCode(key);
-            if (this.table[position] == null) {
-                this.table[position] = new LinkedList();
+            if (this.table[position] == null) { //验证要加入新元素的位置是否已经被占据
+                this.table[position] = new LinkedList(); //在该位置上初始化一个 LinkedList 类的实例
             }
             this.table[position].push(new ValuePair(key, value));
             return true;
@@ -97,9 +97,11 @@ export default class HashTableSeparateChaining {
         const keys = Object.keys(this.table);
         let objString = `{${keys[0]} => ${this.table[keys[0]].toString()}}`;
         for (let i = 1; i < keys.length; i++) {
-            objString = `${objString},{${keys[i]} => ${this.table[
+            objString = `${objString}, \n{${keys[i]} => ${this.table[
                 keys[i]
-            ].toString()}}`;
+            ].toString()
+                }
+    }`;
         }
         return objString;
     }
